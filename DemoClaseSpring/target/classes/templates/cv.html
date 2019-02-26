@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title>Curriculum Vitae</title>
+    <link href="../static/css/cv.css" th:href="@{/css/cv.css}" rel="stylesheet" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+<header>
+</header>
+
+<nav>
+    <ul>
+        <li id="li1"><a href="#section-1"><p id="pnav">111</p></a></li>
+        <li id="li2"><a href="#section-2"><p id="pnav">222</p></a></li>
+        <li id="li3"><a href="#section-3"><p id="pnav">333</p></a></li>
+        <li id="li4"><a href="#section-4"><p id="pnav">444</p></a></li>
+        <li id="li5"><a href="#section-5"><p id="pnav">555</p></a></li>
+    </ul>
+</nav>
+
+<section id="section-1">
+    <div><img id="foto" th:src="${cv.foto}"/></div>
+    <!--<div><img id="foto" src="../static/images/oscarD.jpg" th:src="@{'images/' + ${cv.foto}}" /></div>-->
+    <div class="titulo"><div class="centrado" th:text="${cv.nombre +' '+ cv.apellidoPaterno +' '+ cv.apellidoMaterno}"></div></div>
+    <div class="centrado" th:text="${cv.grado}"></div>
+</section>
+
+<section id="sectionPrincipal">
+<section id="section-2">
+    <div>
+    <div class="titulo">CONTACTO</div>
+    <ul class="uls">
+        <li class="lis" th:each="item : ${cv.contacto}" th:text="${item}"></li>
+    </ul>
+    </div>
+</section>
+
+<section id="section-3">
+    <div class="titulo">EDUCACIÓN</div>
+    <ul class="uls">
+        <li class="lis" th:each="item : ${cv.educacion}" th:text="${item}"></li>
+    </ul>
+</section>
+
+<section id="section-4">
+    <div class="titulo">CONOCIMIENTOS</div>
+    <ul class="uls">
+        <li th:each="item : ${cv.conocimiento}" th:text="${item}"></li>
+    </ul>
+</section>
+
+<section id="section-5">
+    <div class="titulo">OTROS DATOS DE INTERÉS</div>
+    <ul class="uls">
+        <li th:each="item : ${cv.otros}" th:text="${item}"></li>
+    </ul>
+</section>
+</section>
+
+<footer>
+</footer>
+
+<script>
+    document.getElementById("section-1").onmouseover = function() {mouseOver()};
+    document.getElementById("section-1").onmouseout = function() {mouseOut()};
+
+    function mouseOver(){
+        document.getElementById("li1").style.transform="scale(1.5,1.5)";
+        document.getElementById("li1").style.backgroundColor="black";
+    }
+    function mouseOut(){
+        document.getElementById("li1").style.transform = "scale(1.0,1.0)";
+        document.getElementById("li1").style.backgroundColor="rgba(185, 185, 185,.7)";
+
+    }
+
+    document.getElementById("section-2").onmouseover = function() {mouseOver2()};
+    document.getElementById("section-2").onmouseout = function() {mouseOut2()};
+
+    function mouseOver2(){
+        document.getElementById("li2").style.transform="scale(1.5,1.5)";
+        document.getElementById("li2").style.backgroundColor="rgb(0, 76, 205)";
+    }
+    function mouseOut2(){
+        document.getElementById("li2").style.transform = "scale(1.0,1.0)";
+        document.getElementById("li2").style.backgroundColor="rgb(164, 198, 255)";
+
+    }
+
+    document.getElementById("section-3").onmouseover = function() {mouseOver3()};
+    document.getElementById("section-3").onmouseout = function() {mouseOut3()};
+
+    function mouseOver3(){
+        document.getElementById("li3").style.transform="scale(1.5,1.5)";
+        document.getElementById("li3").style.backgroundColor="rgb(0, 76, 205)";
+    }
+    function mouseOut3(){
+        document.getElementById("li3").style.transform = "scale(1.0,1.0)";
+        document.getElementById("li3").style.backgroundColor="rgb(117, 168, 255)";
+
+    }
+
+    document.getElementById("section-4").onmouseover = function() {mouseOver4()};
+    document.getElementById("section-4").onmouseout = function() {mouseOut4()};
+
+    function mouseOver4(){
+        document.getElementById("li4").style.transform="scale(1.5,1.5)";
+        document.getElementById("li4").style.backgroundColor="rgb(0, 76, 205)";
+    }
+    function mouseOut4(){
+        document.getElementById("li4").style.transform = "scale(1.0,1.0)";
+        document.getElementById("li4").style.backgroundColor="rgb(55, 129, 254)";
+
+    }
+
+    document.getElementById("section-5").onmouseover = function() {mouseOver5()};
+    document.getElementById("section-5").onmouseout = function() {mouseOut5()};
+
+    function mouseOver5(){
+        document.getElementById("li5").style.transform="scale(1.5,1.5)";
+        document.getElementById("li5").style.backgroundColor="rgb(0, 76, 205)";
+    }
+    function mouseOut5(){
+        document.getElementById("li5").style.transform = "scale(1.0,1.0)";
+        document.getElementById("li5").style.backgroundColor="rgb(0, 94, 255)";
+
+    }
+</script>
+</body>
+</html>
